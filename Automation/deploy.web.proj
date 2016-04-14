@@ -8,6 +8,10 @@
     <ExtensionTasksPath>..\</ExtensionTasksPath>
   </PropertyGroup>
 
+  <Import Project="MSBuildExtensions\MSBuild.ExtensionPack.tasks"/>
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+
+
   <Target Name="Deploy">
     <Message  Text = "Deploy  ..."/>
     <MSBuild Projects="$(CsProject)"
