@@ -2,26 +2,18 @@
 
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == ''">Release</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">Any CPU</Platform>
-    <ProjectName>$([System.IO.Path]::GetFileNameWithoutExtension($(ProjectFile)))</ProjectName>
     <CsProject>$(MSBuildProjectDirectory)\..\$(ProjectFile)</CsProject>
-    <ExtensionTasksPath>..\</ExtensionTasksPath>
   </PropertyGroup>
 
   <Target Name="Deploy">
-    <Message  Text = "Deploy  ..."/>
+    <Message  Text = "Deploy..."/>
     <MSBuild Projects="$(CsProject)"
       Targets="Clean;Build"
       Properties="Configuration=$(Configuration);
                   DeployOnBuild=True;
-                  DeployTarget=MSDeployPublish;
+                  DeployTarget=Package;
                   VisualStudioVersion=14.0;
-                  MsDeployServiceUrl=$(StageMsDeployServiceUrl);
-                  DeployIISAppPath=Default Web Site\$(ProjectName);
-                  AllowUntrustedCertificate=True;
-                  UserName=Administrator;
-                  Password=fSoKUR4!Vfy;
-                  _Enable45Check=false"
+                  PackageAsSingleFile=true;"
     StopOnFirstFailure="true" />
     <Message Importance="High" Text = "Build and Deploy Succeded"/>
   </Target>
