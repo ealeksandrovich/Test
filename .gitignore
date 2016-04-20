@@ -1,3 +1,10 @@
 /ASPNET5Test/.vs
 /ASPNET5Test/artifacts
 /ASPNET5Test/src/ASPNET5Test/node_modules
+/NugetServer/.vs/NugetServer/v14/*.suo
+/NugetServer/NugetServer/bin
+/NugetTest/NugetTest/obj
+/NugetTest/NugetTest/bin
+/NugetServer/NugetServer/obj
+/NugetServer/packages
+/NugetTest/packages
